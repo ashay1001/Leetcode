@@ -1,5 +1,5 @@
 class Solution {
-public
+public:
     int hammingDistance(int x, int y) {
      
         int result = x^y, count = 0;
@@ -7,7 +7,7 @@ public
         {
             if(result & 1)
                 count++;
-            result = result1;
+            result = result>>1;
         }
         return count;
     }
