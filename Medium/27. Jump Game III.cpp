@@ -1,3 +1,4 @@
+//DFS approch
 class Solution {
 public:
     bool canReach(vector<int>& arr, int start) {
@@ -17,3 +18,40 @@ public:
         return (lcheck || rcheck);
     }
 };
+
+// BFS approch
+
+/*
+
+class Solution {
+public:
+    bool canReach(vector<int>& arr, int start) {
+                
+        int arraySize = arr.size();
+        queue<int> q;
+        
+        q.push(start);
+    
+        while(!q.empty())
+        {
+            int currIndex=q.front();
+            q.pop();
+                
+            if(arr[currIndex] == 0)
+                return true;
+            
+            if(arr[currIndex] < 0) continue;
+            
+            if (currIndex + arr[currIndex] < arraySize)
+                q.push(currIndex + arr[currIndex]);
+            
+            if (currIndex - arr[currIndex] >= 0)
+                q.push(currIndex - arr[currIndex]);
+            
+            arr[currIndex] = -1;  
+        }
+        return false;
+    }
+};
+
+*/
