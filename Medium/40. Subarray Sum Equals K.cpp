@@ -1,17 +1,28 @@
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int,int> mp;
-        int sum=0,ans=0;
-        mp[sum] = 1;
-        for(auto it:nums){
-            sum += it;
-            int find = sum - k;
-            if(mp.find(find) != mp.end()){
-                ans += mp[find];
-            }
-            mp[sum]++;
+        int n = nums.size();
+        if(n==0)
+            return 0;
+        
+        unordered_map<int,int> mymap;   //Key = PrefixSUM, Value = Count of PrefixSUM.
+        int currSUM = 0;
+        int i = 0;
+        int count = 0;
+        
+        while(i<n)
+        {
+            currSUM += nums[i];
+            
+            if(currSUM == k)    //We found a new subArray with SUM = k
+                count += 1;
+            
+            if(mymap.find(currSUM-k)!=mymap.end())
+                count += mymap[currSUM-k];
+            
+            mymap[currSUM] += 1;
+            i += 1;
         }
-        return ans;
+        return count;
     }
 };
