@@ -14,4 +14,5 @@ public:
         sum += t[rows][i] + min(solve(i, rows+1, t, sum, dp), solve(i+1, rows+1, t, sum, dp));
         return dp[rows][i] = sum;
     }
+
 };
