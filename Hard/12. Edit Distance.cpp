@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int minDistance(string word1, string word2) {
+    int minDistance(string word1, string word2) 
+    {
 
         int dp[word1.size()+1][word2.size()+1];
        
