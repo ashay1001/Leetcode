@@ -3,6 +3,9 @@ public:
     int MOD = 1000000007;
     int findPaths(int m, int n, int N, int startRow, int startColumn) {
         // 3D vector
+        // If we visit any cell i,j with same number of moves remaining
+        // then this 3D vector will be used to get the ans and any further
+        // redundant recursive calls will not be made.
         vector<vector<vector<int>>> dp(m, vector<vector<int>>(n, vector<int>(N+1, -1)));
         return solve(m, n, N, startRow, startColumn, dp);
     }
